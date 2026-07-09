@@ -1,0 +1,81 @@
+#main-container {
+  height: 100vh;
+  width: 100vh;
+  border: 2px solid red;
+  display: flex;
+}
+
+#calculator {
+  background-image: linear-gradient(135deg,rgba(204, 200, 190, 1) 0%, rgba(138, 132, 121, 1) 100%);
+  max-width: 400px;
+  max-height: 600px;
+  width: 200px;
+  height: 600px;
+  border: 10px outset;
+  border-color: #E0D8DE #6A6262 #6A6262 #E0D8DE;
+  border-radius: 5px;
+  flex: 1 1 0;
+  margin: auto;
+}
+
+#buttons {
+  display: flex: 1 0 0;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  margin-top: 25px;
+  gap: 5px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: 0;
+  margin: 5%;
+  gap: 2%;
+}
+
+button {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+  background-image: linear-gradient(135deg, #555366, #434960);
+  border: 3px outset;
+  border-color: #5E5768 #3a445d #3a445d #5e5768;
+  padding:5px;
+  flex: 1 0 0;
+  box-sizing: border-box;
+}
+
+button.operator {
+  border-color: #2EA33B;
+  background-image: linear-gradient(135deg,rgba(42, 155, 55, 1) 0%, rgba(38, 105, 40, 1) 100%);
+}
+
+button.zero,
+button.delete {
+  background-image: linear-gradient(135deg,rgba(253, 29, 29, 1) 0%, rgba(184, 0, 0, 1) 100%);
+  border-color: #fd1d1d #590404 #590404 #fd1d1d;
+}
+
+#space {
+  flex: 2 0 0;
+  padding: 5px;
+  margin: 0 3% 0 3%;
+}
+
+#screen {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 15%;
+  margin: 5%;
+  border: 3px inset;
+  background-color: #cfd2b2;
+  border-color: #6A6262 #E0D8DE #E0D8DE #6A6262;
+}
+
+#display {
+  font-size: 48px;
+  color: black;
+}
