@@ -37,8 +37,6 @@ let display = document.querySelector("#display");
 numberBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
     let value = btn.innerText;
-    console.log(value);
-    display.textContent = "";
     display.textContent += value;
   });
 });
