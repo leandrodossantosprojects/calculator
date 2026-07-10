@@ -1,9 +1,9 @@
 @font-face {
-    font-family: '7segm'; /* Nombre que usarás en font-family */
-    src: url('./media/7segm.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "7segm"; /* Nombre que usarás en font-family */
+  src: url("./media/7segm.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 #main-container {
@@ -14,25 +14,24 @@
 }
 
 #calculator {
-  background-image: linear-gradient(135deg,rgba(204, 200, 190, 1) 0%, rgba(138, 132, 121, 1) 100%);
+  background-image: linear-gradient(
+    135deg,
+    rgba(204, 200, 190, 1) 0%,
+    rgba(138, 132, 121, 1) 100%
+  );
   max-width: 400px;
   max-height: 600px;
   width: 200px;
   height: 600px;
   border: 10px outset;
-  border-color: #E0D8DE #6A6262 #6A6262 #E0D8DE;
+  border-color: #e0d8de #6a6262 #6a6262 #e0d8de;
   border-radius: 5px;
   flex: 1 1 0;
   margin: auto;
 }
 
 #buttons {
-  display: flex: 1 1 0;
-  justify-content: center;
-  align-items: stretch;
-  flex-flow: column wrap;
   margin-top: 25px;
-  gap: 5px;
 }
 
 .row {
@@ -48,25 +47,37 @@ button {
   color: white;
   background-image: linear-gradient(135deg, #555366, #434960);
   border: 3px outset;
-  border-color: #5E5768 #3a445d #3a445d #5e5768;
-  padding:5px;
+  border-color: #5e5768 #3a445d #3a445d #5e5768;
+  padding: 5px;
   flex: 1 0 0;
   box-sizing: border-box;
 }
 
 button.operator {
-  border-color: #FF9C19;
-  background-image: linear-gradient(135deg,rgba(235, 134, 2, 1) 50%, rgba(196, 115, 2, 1) 100%);
+  border-color: #ff9c19;
+  background-image: linear-gradient(
+    135deg,
+    rgba(235, 134, 2, 1) 50%,
+    rgba(196, 115, 2, 1) 100%
+  );
 }
 
 #equal {
-  border-color: #2EA33B;
-  background-image: linear-gradient(135deg,rgba(42, 155, 55, 1) 0%, rgba(38, 105, 40, 1) 100%);
+  border-color: #2ea33b;
+  background-image: linear-gradient(
+    135deg,
+    rgba(42, 155, 55, 1) 0%,
+    rgba(38, 105, 40, 1) 100%
+  );
 }
 
 #zero,
 #bckspace {
-  background-image: linear-gradient(135deg,rgba(253, 29, 29, 1) 0%, rgba(184, 0, 0, 1) 100%);
+  background-image: linear-gradient(
+    135deg,
+    rgba(253, 29, 29, 1) 0%,
+    rgba(184, 0, 0, 1) 100%
+  );
   border-color: #fd1d1d #590404 #590404 #fd1d1d;
 }
 
@@ -85,12 +96,14 @@ button.operator {
   margin: 5%;
   border: 3px inset;
   background-color: #cfd2b2;
-  border-color: #6A6262 #E0D8DE #E0D8DE #6A6262;
+  border-color: #6a6262 #e0d8de #e0d8de #6a6262;
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 #display {
   font-size: 72px;
   line-height: 0.8;
-  font-family: '7segm', sans-serif;
+  font-family: "7segm", sans-serif;
   color: black;
 }
