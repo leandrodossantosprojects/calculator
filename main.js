@@ -30,3 +30,15 @@ function operate(opr, a, b) {
       divide(a, b);
   }
 }
+
+let numberBtn = document.querySelectorAll(".number");
+let display = document.querySelector("#display");
+
+numberBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    let value = btn.innerText;
+    console.log(value);
+    display.textContent = "";
+    display.textContent += value;
+  });
+});
