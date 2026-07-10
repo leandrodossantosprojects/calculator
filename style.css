@@ -55,18 +55,23 @@ button {
 }
 
 button.operator {
+  border-color: #FF9C19;
+  background-image: linear-gradient(135deg,rgba(235, 134, 2, 1) 50%, rgba(196, 115, 2, 1) 100%);
+}
+
+#equal {
   border-color: #2EA33B;
   background-image: linear-gradient(135deg,rgba(42, 155, 55, 1) 0%, rgba(38, 105, 40, 1) 100%);
 }
 
-button.zero,
-button.delete {
+#zero,
+#bckspace {
   background-image: linear-gradient(135deg,rgba(253, 29, 29, 1) 0%, rgba(184, 0, 0, 1) 100%);
   border-color: #fd1d1d #590404 #590404 #fd1d1d;
 }
 
 #space {
-  flex: 2 0 0;
+  flex: 1 0 0;
   padding: 5px;
   margin: 0 3% 0 3%;
 }
