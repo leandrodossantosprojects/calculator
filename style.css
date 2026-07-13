@@ -6,25 +6,33 @@
   font-display: swap;
 }
 
-#main-container {
-  height: 100vh;
+#title {
+  text-align: center;
+  height: 15vh;
   width: 100vh;
-  border: 2px solid red;
+  color: #ffffff;
+}
+
+body {
+  margin: 0;
+  background-color: #1a1a1a;
+}
+
+#main-container {
+  height: 80vh;
+  width: 100vh;
   display: flex;
+  justify-content: center;
 }
 
 #calculator {
-  background-image: linear-gradient(
-    135deg,
-    rgba(204, 200, 190, 1) 0%,
-    rgba(138, 132, 121, 1) 100%
-  );
+  background-image: linear-gradient(135deg, #3a3a3c 0%, #2c2c2e 100%);
   max-width: 400px;
   max-height: 600px;
   width: 200px;
   height: 600px;
   border: 10px outset;
-  border-color: #e0d8de #6a6262 #6a6262 #e0d8de;
+  border-color: #4a4a4c #1a1a1c #1a1a1c #4a4a4c;
   border-radius: 5px;
   flex: 1 1 0;
   margin: auto;
@@ -45,40 +53,28 @@ button {
   font-size: 48px;
   font-weight: bold;
   color: white;
-  background-image: linear-gradient(135deg, #555366, #434960);
+  background-image: linear-gradient(135deg, #4a4a4a, #3a3a3a);
   border: 3px outset;
-  border-color: #5e5768 #3a445d #3a445d #5e5768;
+  border-color: #5e5e5e #2a2a2a #2a2a2a #5e5e5e;
   padding: 5px;
   flex: 1 0 0;
   box-sizing: border-box;
 }
 
 .operator {
-  border-color: #ff9c19;
-  background-image: linear-gradient(
-    135deg,
-    rgba(235, 134, 2, 1) 50%,
-    rgba(196, 115, 2, 1) 100%
-  );
+  border-color: #e08500;
+  background-image: linear-gradient(135deg, #ff9500 0%, #e08500 100%);
 }
 
 #equal {
-  border-color: #2ea33b;
-  background-image: linear-gradient(
-    135deg,
-    rgba(42, 155, 55, 1) 0%,
-    rgba(38, 105, 40, 1) 100%
-  );
+  border-color: #0076d4;
+  background-image: linear-gradient(135deg, #0a84ff 0%, #0076d4 100%);
 }
 
 #zero,
 #backspace {
-  background-image: linear-gradient(
-    135deg,
-    rgba(253, 29, 29, 1) 0%,
-    rgba(184, 0, 0, 1) 100%
-  );
-  border-color: #fd1d1d #590404 #590404 #fd1d1d;
+  background-image: linear-gradient(135deg, #ff3b30 0%, #d62d20 100%);
+  border-color: #ff3b30 #a61c14 #a61c14 #ff3b30;
 }
 
 #space {
@@ -95,15 +91,15 @@ button {
   height: 15%;
   margin: 5%;
   border: 3px inset;
-  background-color: #cfd2b2;
-  border-color: #6a6262 #e0d8de #e0d8de #6a6262;
+  background-color: #1a1a1a;
+  border-color: #0d0d0d #333 #333 #0d0d0d;
   overflow: hidden;
   text-overflow: clip;
 }
 
 #display {
-  font-size: 72px;
+  font-size: 64px;
   line-height: 0.8;
   font-family: "7segm", sans-serif;
-  color: black;
+  color: #ffffff;
 }
