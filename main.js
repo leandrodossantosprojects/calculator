@@ -12,14 +12,18 @@ function multiply(a, b) {
 
 function divide(a, b) {
   if (b === 0) {
-    return "Imposible dvidir por zero";
+    return imposible;
   } else {
     return a / b;
   }
 }
 
 function remainder(a, b) {
-  return a % b;
+  if (b === 0) {
+    return imposible;
+  } else {
+    return a % b;
+  }
 }
 
 function operate(opr, a, b) {
@@ -36,6 +40,8 @@ function operate(opr, a, b) {
       return remainder(a, b);
   }
 }
+let result = "";
+let imposible = "You can't divide between zero";
 
 let numberBtn = document.querySelectorAll(".number");
 let operators = document.querySelectorAll(".operator");
@@ -44,58 +50,135 @@ let equal = document.querySelector("#equal");
 let zero = document.querySelector("#zero");
 let backspace = document.querySelector("#backspace");
 let display = document.querySelector("#display");
+let dot = document.querySelector("#dot");
 let operatorsValues = [];
 for (let values of operators) {
   operatorsValues.push(values.innerText);
 }
 console.log(operatorsValues);
+let num1 = "";
+let num2 = "";
+let operator = "";
 
-numberBtn.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    let value = btn.innerText;
+function numbersInsert(value) {
+  if (operator !== "") {
+    display.innerText = "";
+    num2 += value;
+    display.innerText = num2;
+  } else if (result !== "") {
+    result = "";
+    display.innerText = "";
     display.innerText += value;
-  });
-});
+  } else {
+    display.innerText += value;
+  }
+}
 
-operators.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    console.log("clickeo");
-    if (!operatorsValues.some((value) => display.innerText.includes(value))) {
-      display.innerText += btn.textContent;
+function operatorInsert(value) {
+  if (display.innerText !== "") {
+    if (operator === "") {
+      operator = value;
+      console.log("operator is " + operator);
+      num1 = display.innerText;
+      display.innerText += value;
+      display.style.fontSize = "64px";
     }
-  });
-});
+  }
+}
 
-equal.addEventListener("click", () => {
-  let operator = operatorsValues.find((value) =>
-    display.innerText.includes(value),
-  );
-  console.log(operator);
-  console.log("click equal");
-  let num1extract = display.innerText.slice(
-    0,
-    display.innerText.indexOf(`${operator}`),
-  );
-  let num2extract = display.innerText.slice(
-    display.innerText.indexOf(`${operator}` + 1),
-  );
-  num1 = num1extract === "" ? Nan : Number(num1extract);
-  num2 = num2extract === "" ? Nan : Number(num2extract);
-  console.log(`el operador es ${operator}`);
-  console.log(`num1 es ${num1}`);
-  console.log(`num2 es ${num2}`);
+function dotInsert(value) {
+  if (num2 !== "") {
+    if (!display.innerText.includes(value)) {
+      num2 += value;
+      display.innerText = num2;
+    }
+  } else {
+    if (!display.innerText.includes(value)) {
+      display.innerText += value;
+    }
+  }
+}
+
+function equalOp() {
+  num1 = num1 === "" ? NaN : Number(num1);
+  num2 = num2 === "" ? NaN : Number(num2);
   if (operator !== "" && !isNaN(num2)) {
     result = operate(operator, num1, num2);
-    console.log(result);
-    display.innerText = result;
-    operator = "";
+    if (result === imposible) {
+      display.style.fontSize = "24px";
+      display.innerText = imposible;
+      operator = "";
+    } else {
+      display.innerText = result;
+      console.log(`${num1}${operator}${num2}=${result}`);
+      num1 = "";
+      num2 = "";
+      operator = "";
+    }
   }
-});
+}
 
-zero.addEventListener("click", () => {
+function deleteAll() {
   display.innerText = "";
+  num1 = "";
+  num2 = "";
+  operator = "";
+  result = "";
+}
+
+function backspaceDelete() {
+  if (display.innerText.endsWith(operator)) {
+    operator = "";
+    display.innerText = display.innerText.slice(
+      0,
+      display.innerText.length - 1,
+    );
+  } else if (num2 !== "") {
+    display.innerText = display.innerText.slice(
+      0,
+      display.innerText.length - 1,
+    );
+    num2 = num2.slice(0, num2.length - 1);
+  } else {
+    display.innerText = display.innerText.slice(
+      0,
+      display.innerText.length - 1,
+    );
+  }
+}
+
+operators.forEach((btn) => {
+  btn.addEventListener("click", () => operatorInsert(btn.innerText));
 });
 
-backspace.addEventListener("click", () => {
-  display.innerText = display.innerText.slice(0, display.innerText.length - 1);
+numberBtn.forEach((btn) => {
+  btn.addEventListener("click", () => numbersInsert(btn.innerText));
+});
+
+dot.addEventListener("click", () => {
+  dotInsert(dot.innerText);
+  console.log(dot.innerText);
+});
+
+equal.addEventListener("click", equalOp);
+
+zero.addEventListener("click", deleteAll);
+
+backspace.addEventListener("click", backspaceDelete);
+
+document.addEventListener("keyup", (e) => {
+  console.log(e.key);
+  if (Number.isInteger(Number(e.key))) {
+    numbersInsert(e.key);
+  } else if (operatorsValues.some((value) => value === e.key)) {
+    operatorInsert(e.key);
+  } else if (e.key === dot.innerText) {
+    dotInsert(e.key);
+  } else if (e.key === equal.innerText || e.key === "Enter") {
+    equalOp();
+  } else if (e.key === "Backspace") {
+    backspaceDelete();
+  } else if (e.key === "Delete" || e.key === "c") {
+    deleteAll();
+  }
 });
